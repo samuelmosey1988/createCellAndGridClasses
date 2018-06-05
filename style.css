@@ -1,0 +1,26 @@
+#grid, .row, .cell {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+#grid {
+   width: fit-content;
+    background-color: rgb(2, 2, 80);
+}
+
+#grid2 {
+    width: fit-content; 
+    background-color: rgb(2, 2, 80); 
+}
+
+.row {
+    
+
+}
+
+.cell { 
+    display: inline-block;
+    
+    border: 2px solid blanchedalmond; 
+}
