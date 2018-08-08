@@ -27,6 +27,16 @@ Grid.prototype.fillGrid = function () {
     }
 }
 
+Grid.prototype.findCell = function(rowIndex, colIndex) {
+   return this.gridArray[rowIndex][colIndex]
+}
+Grid.prototype.findNeighbors = function (cell){
+    const rowIndex = cell.rowIndex
+    const colIndex = cell.colIndex
+    const gridArr = this.gridArray
+    console.log(this.gridArray)
+    return [gridArr[rowIndex-1][colIndex], gridArr[rowIndex][colIndex-1], gridArr[rowIndex+1][colIndex], gridArr[rowIndex][colIndex+1]]
+}
 function Cell(rowIndex, colIndex, height, width) {
     this.rowIndex = rowIndex
     this.colIndex = colIndex
@@ -46,6 +56,14 @@ Cell.prototype.createElement = function () {
     this.element.style.height = this.height + "px"
     this.element.style.width = this.width + "px" 
 }
+Cell.prototype.swapStyle = function(oldClass, newClass){
+   if (this.element.classList.contains(oldClass)) this.element.classlist.remove(oldClass)
+    this.element.classList.add(newClass)
+    return this.element
+}
 
 const grid1 = new Grid(10, 10, 30, 30, document.getElementById("grid"))
 const grid2 = new Grid(5, 5, 10, 10, document.body)
+const thisCell = grid1.findCell(5,5)
+thisCell.swapStyle('fuckTaylor', 'FuckTAYLOR')
+console.log(grid1.findNeighbors(thisCell))
